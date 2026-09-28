@@ -17,12 +17,32 @@ const updateCellPositions = () => {
   });
 };
 
-const handleCellClick = (e, i) => {
+const getNearestCellIndex = (x, y) => {
+  let nearest = 0;
+  let min_distance = Infinity;
+
+  cells.forEach((cell, i) => {
+    const diff_x = x - cell.center_position.x;
+    const diff_y = y - cell.center_position.y;
+    const distance = diff_x * diff_x + diff_y * diff_y;
+
+    if (distance < min_distance) {
+      min_distance = distance;
+      nearest = i;
+    }
+  });
+
+  return nearest;
+};
+
+const handleCellClick = (e) => {
   if (clicked) {
     return;
   }
-  
+
   clicked = true;
+
+  const i = getNearestCellIndex(e.pageX, e.pageY);
   
   gsap.to('.cell', {
     duration: 1.6,
@@ -97,11 +117,8 @@ const init = () => {
   updateCellPositions();
   window.addEventListener('resize', updateCellPositions);
   window.addEventListener('pointermove', handlePointerMove);
+  window.addEventListener('pointerup', (e) => handleCellClick(e));
   document.body.addEventListener('pointerleave', () => handlePointerMove());
-
-  cells.forEach((cell, i) =>
-    cell.addEventListener('pointerup', (e) => handleCellClick(e, i))
-  );
 };
 
 init();
