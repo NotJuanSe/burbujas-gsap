@@ -2,9 +2,13 @@
 
 Este es un mini proyecto que hice para jugar un rato con [GSAP](https://gsap.com/) y entender cómo funciona en la práctica, nada de producción ni nada serio, solo para probar la librería.
 
+🔗 **Probalo en vivo:** https://notjuanse.github.io/burbujas-gsap/
+
 ## ¿Qué hace?
 
-Es una grilla de 121 "burbujas" (11x11). Cuando acercás el mouse, las burbujas cercanas se estiran hacia el puntero como si fueran imanes. Si le hacés click a una, toda la grilla explota con física real (gravedad, velocidad y ángulo random) y después se arma sola otra vez.
+Es una grilla de 121 "burbujas" (11x11). Cuando acercás el mouse (o arrastrás el dedo en el celular), las burbujas cercanas se estiran hacia el puntero como si fueran imanes. Cuando soltás click o levantás el dedo, toda la grilla explota desde ese punto con física real (gravedad, velocidad y ángulo random) y después se arma sola otra vez.
+
+Funciona igual en mouse y en touch: anda bien en el celular, no solo con tap sino también arrastrando.
 
 ## Para qué lo hice
 
@@ -19,7 +23,8 @@ Todo esto corre 100% en el navegador, sin build, sin dependencias de npm: GSAP y
 
 ## Cómo probarlo
 
-Solo abrí `index.html` en el navegador. No necesita servidor ni instalar nada.
+- Online: entrá a https://notjuanse.github.io/burbujas-gsap/
+- Local: solo abrí `index.html` en el navegador. No necesita servidor ni instalar nada.
 
 ## Estructura
 
